@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "hanitsoa.h"
 
-void tail(FILE *fic)
+void tail(FILE *fic,char* fichier)
 {
 	int compteur = 0,compteur2=0;
 	char mot[100];
-	fic = fopen("/home/ayan/ayan1", "r");
+	fic = fopen(fichier, "r");
 	if (fic == NULL)
 	{
 		printf("erreur\n");
@@ -30,12 +30,12 @@ void nombre(int* n)
 	printf("Entrez n : ");
 	scanf("%d",n);
 }
-void tail_n(FILE* fic, int n)
+void tail_n(FILE* fic, int n,char* fichier)
 {
 	int compteur = 0,compteur2=0;
 	char mot[100];
-	fic = fopen("fichier.txt", "r");
-	printf("Affiche les %d derniers lignes\n", n);
+	fic = fopen(fichier, "r");
+	
 	if (fic == NULL)
 	{
 		printf("erreur\n");
@@ -54,4 +54,10 @@ void tail_n(FILE* fic, int n)
 				printf("%s", mot);
 		}
 	}
+}
+void tail_v(FILE* fic,int n,char* fichier)
+{
+	printf("==>%s<==\n",fichier);
+	tail_n(fic,n,fichier);
+
 }
